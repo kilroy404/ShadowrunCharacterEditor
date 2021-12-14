@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de-DE">  
+	<head>
+		<title>MainGame</title><!--    -->
+		<meta name="author" content="Martin Conrad">
+		<meta charset="utf-8">
+		<link href="style.css" rel="stylesheet" media="screen">	
+		<script src="object_charakter.js"></script>
+	</head>
+	<body>
+<h1>Charaktererstellung</h1>
+<main>
+<div id= ArtKarma>
+<h2>Karmaberechnung</h2>
+	<!-- Eingabeform Karma Startwert -->
+	<form>
+		<label for="KEingabe">Karmapunkte: 
+			<input id="KEingabeWert" type="number" min="300" max="2200" step="1" ></label>
+		
+		<br><br>
+		
+		<!-- Ausgabe der Karmawerte -->
+		<label><b>Karma Berechnungen (Ausgabewerte):</b><br>
+			<table><tr><td>Startwert: </td><td><output id="KarStart"></output></td></tr>
+			<tr><td>Metatypkosten: </td><td><output id="KarMetaKost"></output></td></tr>
+			<tr><td>Eigenschaftskosten: </td><td><output id="KarEigKost"></output></td></tr>
+			<tr><td>Gesamtwert: </td><td><output id="KarGes"></output></td></tr></table>
+		</label>
+		<br>
+		
+	</form>
+	<br><hr>
+</div>
+
+<div id= ArtMetatyp>
+	<h2>Metatyp</h2>
+<form action="#" id="MetaAuswahl">
+					<label>Metatyp:
+						<select id="Metatyp" size="1">
+							<option value="Elf">Elf</option>
+							<option value="Norm">Norm</option>
+							<option value="Ork">Ork</option>
+							<option value="Troll">Troll</option>
+							<option value="Zwerg">Zwerg</option>
+						</select>
+					</label>
+				</form>
+				
+				</div>
+				<div id= "MetatypBeschreibung">
+				<output id="MetatypOutput"> </output>	
+<br><hr>
+</div>
+
+<div id= ArtEigenschaften>
+	<h2>Eigenschaften</h2>
+	<table>
+		<tr><td>Eigenschaft</td><td>Start</td><td>Erhöhung</td><td>Gesamtwert</td><td>Kosten</td><tr>
+		<!-- -->
+		<tr><td>Konstitution</td><td>
+		<output id="KonStartAusg"></output></td>
+		<td><button id="KonUp">+</button> <output id="KonErhAusg"></output> <button id="KonDown">-</button></td>
+		<td><output id="KonGesAusg"></output></td>
+		<td><output id="KonKarKostAusg"></output></td><tr>
+		<!-- -->
+		<tr><td>Stärke</td><td>
+		<output id="StrStartAusg"></output></td>
+		<td><button id="StrUp">+</button> <output id="StrErhAusg"></output> <button id="StrDown">-</button></td>
+		<td><output id="StrGesAusg"></output></td>
+		<td><output id="StrKarKostAusg"></output></td><tr>
+		<!-- -->
+		<tr><td>Reaktion</td><td>
+		<output id="ReaStartAusg"></output></td>
+		<td><button id="ReaUp">+</button> <output id="ReaErhAusg"></output> <button id="ReaDown">-</button></td>
+		<td><output id="ReaGesAusg"></output></td>
+		<td><output id="ReaKarKostAusg"></output></td><tr>
+		<!-- -->
+		<tr><td>Geschicklichkeit</td><td>
+		<output id="GekStartAusg"></output></td>
+		<td><button id="GekUp">+</button> <output id="GekErhAusg"></output> <button id="GekDown">-</button></td>
+		<td><output id="GekGesAusg"></output></td>
+		<td><output id="GekKarKostAusg"></output></td><tr>
+		<!-- -->
+		<tr><td>Willenskraft</td><td>
+		<output id="WilStartAusg"></output></td>
+		<td><button id="WilUp">+</button> <output id="WilErhAusg"></output> <button id="WilDown">-</button></td>
+		<td><output id="WilGesAusg"></output></td>
+		<td><output id="WilKarKostAusg"></output></td><tr>
+		<!-- -->
+		<tr><td>Logik</td><td>
+		<output id="LogStartAusg"></output></td>
+		<td><button id="LogUp">+</button> <output id="LogErhAusg"></output> <button id="LogDown">-</button></td>
+		<td><output id="LogGesAusg"></output></td>
+		<td><output id="LogKarKostAusg"></output></td><tr>
+		<!-- -->
+		<tr><td>Intuition</td><td>
+		<output id="IntStartAusg"></output></td>
+		<td><button id="IntUp">+</button> <output id="IntErhAusg"></output> <button id="IntDown">-</button></td>
+		<td><output id="IntGesAusg"></output></td>
+		<td><output id="IntKarKostAusg"></output></td><tr>
+		<!-- -->
+		<tr><td>Charisma</td><td>
+		<output id="ChaStartAusg"></output></td>
+		<td><button id="ChaUp">+</button> <output id="ChaErhAusg"></output> <button id="ChaDown">-</button></td>
+		<td><output id="ChaGesAusg"></output></td>
+		<td><output id="ChaKarKostAusg"></output></td><tr>
+	</table>	
+<br><hr>
+</div>
+
+
+
+<div id= "ArtFahigkeiten">
+	<h2>Fahigkeiten</h2>
+	<table>
+		<tr><td>Fahigkeit</td><td>Wert</td><td>Sonderfertigkeit</td><td>Würfelpool</td><td>Kosten</td><tr>
+		<!-- -->
+		<tr>
+			<td>Astral</td>
+			<td><button id="FahAstUp">+</button> <output id="FahAstWertAusg"></output> <button id="FahAstDown">-</button></td>
+			<td><form action="#" id="FahAstSonderF"><label><select id="FahAstS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahAstGesAusg"></output><output class="IntPool"></output></td>
+			<td><output id="FahAstKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Athletik</td>
+			<td><button id="FahAthUp">+</button> <output id="FahAthWertAusg"></output> <button id="FahAthDown">-</button></td>
+			<td><form action="#" id="FahAthSonderF"><label><select id="FahAthS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahAthGesAusg"></output><output class="KonPool"></output></td>
+			<td><output id="FahAthKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Beschwören</td>
+			<td><button id="FahBesUp">+</button> <output id="FahBesWertAusg"></output> <button id="FahBesDown">-</button></td>
+			<td><form action="#" id="FahBesSonderF"><label><select id="FahBesS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahBesGesAusg"></output></td>
+			<td><output id="FahBesKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Biotech</td>
+			<td><button id="FahBioUp">+</button>
+			<output id="FahBioWertAusg"></output>
+			<button id="FahBioDown">-</button></td>
+			<td><form action="#" id="FahBioSonderF"><label><select id="FahBioS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahBioGesAusg"></output></td>
+			<td><output id="FahBioKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Cracken</td>
+			<td><button id="FahCraUp">+</button>
+			<output id="FahCraWertAusg"></output>
+			<button id="FahCraDown">-</button></td>
+			<td><form action="#" id="FahCraSonderF"><label><select id="FahCraS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahCraGesAusg"></output></td>
+			<td><output id="FahCraKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Einfluss</td>
+			<td><button id="FahEinUp">+</button>
+			<output id="FahEinWertAusg"></output>
+			<button id="FahEinDown">-</button></td>
+			<td><form action="#" id="FahEinSonderF"><label><select id="FahEinS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahEinGesAusg"></output></td>
+			<td><output id="FahEinKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Elektronik</td>
+			<td><button id="FahEleUp">+</button>
+			<output id="FahEleWertAusg"></output>
+			<button id="FahEleDown">-</button></td>
+			<td><form action="#" id="FahEleSonderF"><label><select id="FahEleS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahEleGesAusg"></output></td>
+			<td><output id="FahEleKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Exotische Waffen</td>
+			<td><button id="FahExoUp">+</button>
+			<output id="FahExoWertAusg"></output>
+			<button id="FahExoDown">-</button></td>
+			<td><form action="#" id="FahExoSonderF"><label><select id="FahExoS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahExoGesAusg"></output></td>
+			<td><output id="FahExoKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Feuerwaffen</td>
+			<td><button id="FahFeuUp">+</button>
+			<output id="FahFeuWertAusg"></output>
+			<button id="FahFeuDown">-</button></td>
+			<td><form action="#" id="FahFeuSonderF"><label><select id="FahFeuS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahFeuGesAusg"></output></td>
+			<td><output id="FahFeuKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Heimlichkeit</td>
+			<td><button id="FahHeiUp">+</button>
+			<output id="FahHeiWertAusg"></output>
+			<button id="FahHeiDown">-</button></td>
+			<td><form action="#" id="FahHeiSonderF"><label><select id="FahHeiS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahHeiGesAusg"></output></td>
+			<td><output id="FahHeiKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Hexerei</td>
+			<td><button id="FahHexUp">+</button>
+			<output id="FahHexWertAusg"></output>
+			<button id="FahHexDown">-</button></td>
+			<td><form action="#" id="FahHexSonderF"><label><select id="FahHexS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahHexGesAusg"></output></td>
+			<td><output id="FahHexKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Mechanik</td>
+			<td><button id="FahMecUp">+</button>
+			<output id="FahMecWertAusg"></output>
+			<button id="FahMecDown">-</button></td>
+			<td><form action="#" id="FahMecSonderF"><label><select id="FahMecS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahMecGesAusg"></output></td>
+			<td><output id="FahMecKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Nahkampf</td>
+			<td><button id="FahNahUp">+</button>
+			<output id="FahNahWertAusg"></output>
+			<button id="FahNahDown">-</button></td>
+			<td><form action="#" id="FahNahSonderF"><label><select id="FahNahS" size="1">	<option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahNahGesAusg"></output></td>
+			<td><output id="FahNahKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Natur</td>
+			<td><button id="FahNatUp">+</button>
+			<output id="FahNatWertAusg"></output>
+			<button id="FahNatDown">-</button></td>
+			<td><form action="#" id="FahNatSonderF"><label><select id="FahNatS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahNatGesAusg"></output></td>
+			<td><output id="FahNatKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Steuern</td>
+			<td><button id="FahSteUp">+</button>
+			<output id="FahSteWertAusg"></output>
+			<button id="FahSteDown">-</button></td>
+			<td><form action="#" id="FahSteSonderF"><label><select id="FahSteS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahSteGesAusg"></output></td>
+			<td><output id="FahSteKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Tasken</td>
+			<td><button id="FahTasUp">+</button>
+			<output id="FahTasWertAusg"></output>
+			<button id="FahTasDown">-</button></td>
+			<td><form action="#" id="FahTasSonderF"><label><select id="FahTasS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahTasGesAusg"></output></td>
+			<td><output id="FahTasKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Überreden</td>
+			<td><button id="FahUbeUp">+</button>
+			<output id="FahUbeWertAusg"></output>
+			<button id="FahUbeDown">-</button></td>
+			<td><form action="#" id="FahUbeSonderF">	<label><select id="FahUbeS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option>	<option value="3">3</option></select></label></form></td>
+			<td><output id="FahUbeGesAusg"></output></td>
+			<td><output id="FahUbeKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Verzaubern</td>
+			<td><button id="FahVerUp">+</button>
+			<output id="FahVerWertAusg"></output>
+			<button id="FahVerDown">-</button></td>
+			<td><form action="#" id="FahVerSonderF"><label><select id="FahVerS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahVerGesAusg"></output></td>
+			<td><output id="FahVerKarKostAusg"></output></td>
+		</tr>
+		<tr>
+			<td>Wahrnehmung</td>
+			<td><button id="FahWahUp">+</button>
+			<output id="FahWahWertAusg"></output>
+			<button id="FahWahDown">-</button></td>
+			<td><form action="#" id="FahWahSonderF"><label><select id="FahWahS" size="1"><option value="0">None</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label></form></td>
+			<td><output id="FahWahGesAusg"></output></td>
+			<td><output id="FahWahKarKostAusg"></output></td>
+		</tr>
+	</table>
+<br><hr>
+</div>
+<div id= "ArtSondrfaehigkeiten">
+	<h2>Sonderfertigkeiten</h2>
+	<table>
+		<tr><td>Vorteil</td><td>Stufe</td><td>Hinzufügen</td><tr>		
+		<!-- -->
+		<tr><td>Analytischer Geist</td><td></td><td><button id="VorTHinz1"> + </button></td><tr>
+	</table>
+	<br><hr>
+	<b>Gewählte Vorteile:</b><br>
+	<output id="AktiveVorT"></output>
+	<br><hr>
+
+
+</main>
+</body>
+</html>
