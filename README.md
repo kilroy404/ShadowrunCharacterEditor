@@ -1,3 +1,4 @@
-# Shadowrun Character Editor
+# Shadowrun - Character Editor
+_
 
 
